@@ -1,0 +1,13 @@
+{
+  "name": "marketbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "marketbot.js",
+  "scripts": {
+    "start": "node marketbot.js"
+  },
+  "dependencies": {
+    "discord.js": "11.5.1",
+    "request": "2.81.0"
+  }
+}
