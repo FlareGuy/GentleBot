@@ -271,23 +271,39 @@ cecca();
         }
 
         
-        } else if (message.channel.id === "701427808815284314") {
+        } 
+              
+        if (message.channel.id === "706552757674442792") {
 
-            const betaRole = message.guild.roles.find(role => role.name === "Beta Access");
+          if (message.content) {
+   
+            let ghostt = new Discord.RichEmbed ()
+       
+               .setTitle (`Új üzenet Ghost Admin chatjében!`)
+               .setColor ("RANDOM")
+               .addBlankField()
+               .addField ("Szerver neve", `${message.author.lastMessage.guild.name}`)
+               .addBlankField ()
+               .addField ("Üzenet küldője", `${message.author}`)
+               .addBlankField ()
+               .addField ("Channel neve", `${message.author.lastMessage.channel.name} \n (${message.author.lastMessage.channel.id})`)
+               .addBlankField()
+               .addField ("Üzenet tartalma", `${message.content}`)
+               .addBlankField()
+               .setFooter (bot.user.username, "https://cdn.discordapp.com/attachments/649996051159318551/650397196293767189/botlogo_publ2.png")
+               .setTimestamp();
+    
+               bot.users.get("342630541079609355").send(ghostt);
+    
+            }
 
-              message.member.addRole(betaRole);
- 
-              setTimeout(() => {
 
-                 message.channel.send(`${message.author}, sikeresen megkaptad a **Beta Access** rolet!`);
-
-               }, 500);
-      
+        }
 
 
 
-        return;
-         } 
+        
+         
 
  
  if (message.content.startsWith("!teszt")) {
