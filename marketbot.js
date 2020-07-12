@@ -152,7 +152,7 @@ bot.on ("message", message => {
 
 
      
-        var fk = [".", "baz+", "kussolj", "vicci",  "vicces", " ", "c###ny", " ", " ", " "];
+        var fk = [args[args.length - 1], "baz+", "kussolj", "vicci",  "vicces", " ", args[0], " ", " ", " "];
         var gk = Math.floor(Math.random() * fk.length);
  
 
