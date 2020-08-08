@@ -368,7 +368,7 @@ bot.on("guildMemberAdd", guildMember => {
     
       } else if (guildMember.guild.id === "417247359551012871") {
 
-        guildMember.send("***Üdv a Magyar Fortnite Közösség szerverén! \n Esetleg ha kíváncsi lennél a beszélgetős botunkra, itt egy meghívó, amivel felviheted őt a szerveredre társalogni:*** \n https://discord.com/oauth2/authorize?client_id=667793688910626816&permissions=8&scope=bot 😎");
+        guildMember.send("***Üdv a Magyar LoL Közösség szerverén! \n Esetleg ha kíváncsi lennél a beszélgetős botunkra, itt egy meghívó, amivel felviheted őt a szerveredre társalogni:*** \n https://discord.com/oauth2/authorize?client_id=667793688910626816&permissions=8&scope=bot 😎");
       
 
       } else if (guildMember.guild.id === "322071698465882112") {
