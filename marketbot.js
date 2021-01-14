@@ -21,7 +21,7 @@ bot.on (`ready`, () => {
    
     try {
     console.log(`Bejelentkezve mint ${bot.user.tag}!`);
-    const status =  `${bot.guilds.size} szeró`; 
+    const status =  `${bot.guilds.cache.size} szeró`; 
     bot.user.setActivity ( status, {type: "STREAMING", url: "https://www.twitch.tv/flareguy_" });
     
    
