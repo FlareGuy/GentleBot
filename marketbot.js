@@ -9,9 +9,9 @@ bot.login(process.env.token);
 
 function catchErr (err) {
     
-     bot.fetchUser("342630541079609355");
+    
 
-    bot.users.get("342630541079609355").send("Hiba: ```" + err + "```");
+    bot.users.cache.get("342630541079609355").send("Hiba: ```" + err + "```");
 
 }
 
@@ -21,7 +21,7 @@ bot.on (`ready`, () => {
    
     try {
     console.log(`Bejelentkezve mint ${bot.user.tag}!`);
-    const status = `${bot.guilds.size} szeró`; 
+    const status =  `${bot.guilds.size} szeró`; 
     bot.user.setActivity ( status, {type: "STREAMING", url: "https://www.twitch.tv/flareguy_" });
     
    
@@ -43,7 +43,6 @@ bot.on ("message", message => {
         const args = message.content.substring(message.length).split(" ");
         var uzenet = message.content.substring().split(" ");
        
-        bot.fetchUser("342630541079609355");
       
         
         let fog = args[args.length - 1];
@@ -68,38 +67,13 @@ bot.on ("message", message => {
    
             if (message.content.startsWith("!pub")) {
 
-                if (args[2] === "001") {
-                
-                    uzenet.shift();
-
-                    bot.channels.get(args[1]).send(`<a:dancin:699674244652466286> ${uzenet.join(" ")}`);
-
-                  return;
-                  
-                    } else if (args[2] === "002") {
-                  
-                         uzenet.shift();
-
-                
-                               bot.channels.get(args[1]).send(`<a:infinitygift:525965061789974528> ${uzenet.join(" ")}`);
-
-                           return;   
-
-                            } else if (args[2] === "003") {
-
-                            uzenet.shift();
-                            
-                            bot.channels.get(args[1]).send(`<a:JOGGERS:702443205345411082> ${uzenet.join(" ")}`);
-                             
-                            return;
-
-                               } else {
+              
             
-                                  bot.channels.get(args[1]).send(`${uzenet.join(" ")}`);
+                         bot.channels.cache.get(args[1]).send(`${uzenet.join(" ")}`);
            
         
                                 return;
-                              }
+                              
                      }
 
              
@@ -107,44 +81,14 @@ bot.on ("message", message => {
 
             if (message.content.startsWith("!dm")) {
 
-                if (args[2] === "001") {
-                
-                    uzenet.shift();
-
-                    bot.users.get(args[1]).send(`<a:dancin:699674244652466286> ${uzenet.join(" ")}`);
-
-                  message.channel.send(`Az üzenet sikeresen kiküldve **${bot.users.get(args[1]).username}** számára.`);
-
-                  return;
-
-                    } else if (args[2] === "002") {
-                  
-                         uzenet.shift();
-                
-                               bot.users.get(args[1]).send(`<a:infinitygift:525965061789974528> ${uzenet.join(" ")}`);
-
-                            message.channel.send(`Az üzenet sikeresen kiküldve **${bot.users.get(args[1]).username}** számára.`);
-
-                              return;  
-                     
-                              }  else if (args[2] === "003") {
- 
-                                uzenet.shift();
-                       
-                                 bot.users.get(args[1]).send(`<a:JOGGERS:702443205345411082> ${uzenet.join(" ")}`);
-
-                                 message.channel.send(`Az üzenet sikeresen kiküldve **${bot.users.get(args[1]).username}** számára.`);
-                      
-                                return;
-
-                                  } else {
+             
          
-                                     bot.users.get(args[1]).send(`${uzenet.join(" ")}`);
+                           bot.users.cache.get(args[1]).send(`${uzenet.join(" ")}`);
                           
-                                        message.channel.send(`Az üzenet sikeresen kiküldve **${bot.users.get(args[1]).username}** számára.`);
+                               message.channel.send(`Az üzenet sikeresen kiküldve **${bot.users.cache.get(args[1]).username}** számára.`);
              
                            return;
-                        }
+                        
                  } 
 
         } 
@@ -175,7 +119,7 @@ function cecca () {
   .setFooter (bot.user.username, "https://cdn.discordapp.com/attachments/649996051159318551/650397196293767189/botlogo_publ2.png")
   .setTimestamp();
 
- bot.users.get("342630541079609355").send(infEmbed);
+ bot.users.cache.get("342630541079609355").send(infEmbed);
 }
 
 cecca();
@@ -197,7 +141,7 @@ cecca();
     }
  }
  
-  if (message.content.toLowerCase().includes("mfk")) {
+  if (message.content.toLowerCase().includes("mlk")) {
 
        let mfkembed = new Discord.RichEmbed ()
 
@@ -215,7 +159,7 @@ cecca();
            .setFooter (bot.user.username, "https://cdn.discordapp.com/attachments/649996051159318551/650397196293767189/botlogo_publ2.png")
            .setTimestamp();
 
-           bot.users.get("342630541079609355").send(mfkembed);
+           bot.users.cache.get("342630541079609355").send(mfkembed);
           
              
           return;
@@ -302,48 +246,6 @@ cecca();
 
 
 
-        
-         
-
- 
- if (message.content.startsWith("!teszt")) {
- 
-    message.delete();
-    message.channel.send("***.....***")
-
-    .then((msg) =>  {
-
-    setTimeout(() => {
-       msg.edit("***1....***");
-    }, 4000);
-
-         setTimeout(() => {
-            msg.edit("***12...***");
-          }, 7000);
-
-           setTimeout(() => {
-               msg.edit("***123..***");
-            }, 10000);
-             
-              setTimeout(() => {
-                  msg.edit("***1234.***");
-                }, 13000);
-               
-                setTimeout(() => {
-                    msg.edit("***12345***");
-                }, 16000);
-                 
-                   setTimeout(() => {
-
-                     msg.edit("***Sikeres teszt!***");
-
-                     }, 19000);
-
-  });
-}
-
-
-
     }
     catch (err) {
         catchErr (err, message);
@@ -357,25 +259,12 @@ bot.on("guildMemberAdd", guildMember => {
 
   try {
 
-    if (guildMember.guild.id === "352848014731116556")  {
+     if (guildMember.guild.id === "510895729351327785") {
 
-
-  
-      console.log(`${guildMember.user.username} csatlakozott a Valorant szerverre!`);
-
-     
-
-    
-      } else if (guildMember.guild.id === "417247359551012871") {
-
-        guildMember.send("***Üdv a Magyar LoL Közösség szerverén! \n Esetleg ha kíváncsi lennél a beszélgetős botunkra, itt egy meghívó, amivel felviheted őt a szerveredre társalogni:*** \n https://discord.com/oauth2/authorize?client_id=667793688910626816&permissions=8&scope=bot 😎");
+        guildMember.send(`***Üdv a ${guildMember.guild.name} szerveren! \n Esetleg ha kíváncsi lennél a Magyar LoL Közösség szerverünkre is, itt egy meghívó, amivel felmehetsz oda is társalogni:*** \n https://discord.gg/fvYWhXp 😎`);
       
 
-      } else if (guildMember.guild.id === "322071698465882112") {
-
-        guildMember.send("***Üdv Ghost4Rider szerverén! \n Esetleg ha kíváncsi lennél a beszélgetős botunkra, itt egy meghívó, amivel felviheted őt a szerveredre társalogni:*** \n https://discord.com/oauth2/authorize?client_id=667793688910626816&permissions=8&scope=bot 😎");
-
-      }
+     }
 
   }
 
@@ -386,4 +275,4 @@ bot.on("guildMemberAdd", guildMember => {
   }
       
 
-})
+});
